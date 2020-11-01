@@ -1,0 +1,28 @@
+{% extends 'home.html' %}
+{% block Writepad %}
+<br>
+<br>
+
+{% if note_searched|length == 0 %}
+<p>Your search <strong>{{query}}</strong>- did not match any documents.</p>
+{% endif %}
+
+<div class="container">
+<div class="row">
+{% for data in note_searched %}
+<div class="col-md-4">
+<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+  <div class="card-header">📌</div>
+  <div class="card-body">
+    <h5 class="card-title">{{data.Title}}</h5>
+    <p class="card-text">{{data.Content|truncatechars:300|safe}}</p>
+    <a href="read/{{data.id}}" type="button" class="btn btn-light">Read more</a>
+  </div>
+  </div>
+  </div>
+{% endfor %}
+
+</div>
+</div>
+
+{% endblock Writepad %}
