@@ -1,16 +1,12 @@
-{% extends 'home.html' %}
-
-{% block contentsx %}
-<br>
-<br>
+{% extends 'home.html' %} {% load static %} {% block contentsx %}
+<br />
+<br />
 
 <div class="container">
-<form action="" method="post">
-	{% csrf_token %}
-    {{form.media}}
-	{{form.as_p}}
-	<input type="submit" class="btn btn-dark btn-lg btn-block">
-</form>
+  <form action="" method="post">
+    {% csrf_token %} {{form.media}} {{form.as_p}}
+    <input type="submit" class="btn btn-dark btn-lg btn-block" />
+  </form>
 </div>
 
 {% endblock contentsx %}

@@ -1,38 +1,33 @@
-{% extends 'home.html' %}
-{% block Writepad %}
+{% extends 'home.html' %} {% load static %} {% block Writepad %}
 
-<br>
-<br>
+<br />
+<br />
 
 <form action="" method="post">
-	{% csrf_token %}
-    {{form.media}}
-	{{form.as_p}}
-	<input type="submit" class="btn btn-dark">
+  {% csrf_token %} {{form.media}} {{form.as_p}}
+  <input type="submit" class="btn btn-dark" />
 </form>
 
-
-<br>
-<br>
-
+<br />
+<br />
 
 <div class="container">
-
-<div class="row">
-{% for data in Notes %}
-<div class="col-md-4">
-<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-  <div class="card-header">📌</div>
-  <div class="card-body">
-    <h5 class="card-title">{{data.Title}}</h5>
-    <p class="card-text">{{data.Content|truncatechars:300|safe}}</p>
-    <a href="read/{{data.id}}" type="button" class="btn btn-light">Read more</a>
+  <div class="row">
+    {% for data in Notes %}
+    <div class="col-md-4">
+      <div class="card text-white bg-dark mb-3" style="max-width: 18rem">
+        <div class="card-header">📌</div>
+        <div class="card-body">
+          <h5 class="card-title">{{data.Title}}</h5>
+          <p class="card-text">{{data.Content|truncatechars:300|safe}}</p>
+          <a href="read/{{data.id}}" type="button" class="btn btn-light"
+            >Read more</a
+          >
+        </div>
+      </div>
+    </div>
+    {% endfor %}
   </div>
-  </div>
-  </div>
-{% endfor %}
-
-</div>
 </div>
 
 {% endblock Writepad %}
